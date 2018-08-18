@@ -3,6 +3,7 @@ package com.github.graalogosh.DemoApp.controllers;
 import com.github.graalogosh.DemoApp.models.Task;
 import com.github.graalogosh.DemoApp.models.TaskStatus;
 import com.github.graalogosh.DemoApp.repositories.TaskRepository;
+import lombok.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,8 +47,7 @@ public class TaskController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Task> getTask(
-            @PathVariable(name = "id")
-                    String uuid
+            @PathVariable(name = "id") String uuid
     ) {
         try {
             UUID.fromString(uuid);
@@ -61,7 +61,7 @@ public class TaskController {
         return new ResponseEntity<>(task, HttpStatus.OK);
     }
 
-    private void processTask(Task task) {
+    private void processTask(@NonNull Task task) {
         task.setStatus(TaskStatus.RUNNING);
         taskRepository.save(task);
         logger.info("Task " + task.getId() + " starts processing in " + new Date());

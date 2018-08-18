@@ -2,6 +2,7 @@ package com.github.graalogosh.DemoApp.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
+import lombok.NonNull;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -34,7 +35,7 @@ public class Task {
         setStatus(TaskStatus.CREATED);
     }
 
-    public void setStatus(TaskStatus status) {
+    public void setStatus(@NonNull TaskStatus status) {
         this.status = status;
         this.timestamp = new Date();
     }
