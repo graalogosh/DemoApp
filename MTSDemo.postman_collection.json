@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "394b9954-7750-4ca4-a587-8ae0aa244b45",
+		"name": "MTSDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateTask",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "naturi-wood.ru:8080/task",
+					"host": [
+						"naturi-wood",
+						"ru"
+					],
+					"port": "8080",
+					"path": [
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTask",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "naturi-wood.ru:8080/task/ca6f72b2-6d9e-4971-9900-e1db75775aae",
+					"host": [
+						"naturi-wood",
+						"ru"
+					],
+					"port": "8080",
+					"path": [
+						"task",
+						"ca6f72b2-6d9e-4971-9900-e1db75775aae"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTaskNotUUID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "naturi-wood.ru:8080/task/cwdqwer",
+					"host": [
+						"naturi-wood",
+						"ru"
+					],
+					"port": "8080",
+					"path": [
+						"task",
+						"cwdqwer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
