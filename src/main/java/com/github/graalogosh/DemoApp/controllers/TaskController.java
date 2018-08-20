@@ -34,6 +34,11 @@ public class TaskController {
         this.taskRepository = taskRepository;
     }
 
+    /**
+     * Creates a task with random UUID and places it to process
+     *
+     * @return JSON with UUID of created task
+     */
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Map> createTask() {
         Task task = new Task();
@@ -45,6 +50,14 @@ public class TaskController {
         return new ResponseEntity<>(Collections.singletonMap("uuid", task.getUuid()), HttpStatus.ACCEPTED);
     }
 
+    /**
+     * Returns {status} and {timestamp} of task with given UUID
+     *
+     * @param uuid UUID of task
+     * @return JSON with status and timestamp of task
+     * @throws NOT_FOUND   error code, when task with given UUID is not created
+     * @throws BAD_REQUEST error code, when given string is not UUID
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Task> getTask(
             @PathVariable(name = "id") String uuid
